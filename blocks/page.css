@@ -1,3 +1,19 @@
 .page {
   background-color: black;
+  color: white;
+}
+
+.page__content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Inter";
+  /* margin-left: 200px;
+  margin-right: 200px; */
+}
+
+.page__section {
+  margin: 0 auto;
+  max-width: 880px;
+  width: 100%;
 }
