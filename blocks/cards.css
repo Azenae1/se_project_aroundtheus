@@ -4,6 +4,7 @@
 
 .card__list {
   padding: 0;
+  margin-bottom: 0;
   display: grid;
   list-style-type: none;
   justify-content: center;

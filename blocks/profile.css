@@ -74,3 +74,24 @@
 .profile__add-button:hover {
   opacity: 0.6;
 }
+
+@media screen and (max-width: 480px) {
+  .profile {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .profile__description {
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile__add-button {
+    margin: 0;
+  }
+}
