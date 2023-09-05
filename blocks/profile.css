@@ -16,7 +16,6 @@
   grid-template-areas:
     "title button"
     "description description";
-  /* grid-template-columns: minmax(auto, 373px) auto; */
   margin: auto 30px;
 }
 
