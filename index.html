@@ -10,11 +10,7 @@
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
-        <img
-          class="header__logo"
-          src="./images/logo.svg"
-          alt="Around the U.S logo"
-        />
+        <div class="header__logo"></div>
       </header>
       <main class="content">
         <section class="profile page__section">
@@ -25,7 +21,11 @@
           />
           <div class="profile__info">
             <h1 class="profile__name">Jacques Cousteau</h1>
-            <button class="profile__edit-button" type="button"></button>
+            <button
+              class="profile__edit-button"
+              aria-label="edit"
+              type="button"
+            ></button>
             <p class="profile__description">Explorer</p>
           </div>
           <button class="profile__add-button" type="button"></button>
