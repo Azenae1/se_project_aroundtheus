@@ -148,9 +148,7 @@
 
 @media screen and (max-width: 395px) and (min-width: 320px) {
   .profile__info {
-    display: flex;
     margin: auto;
-    justify-content: center;
   }
 
   .profile__edit-button {
