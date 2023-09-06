@@ -1,13 +1,18 @@
 .footer {
   margin-bottom: 60px;
+}
+
+.footer__copyright {
+  margin: 67px 0 0;
   color: #545454;
-  font-family: Inter;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 
-.footer__copyright {
-  margin: 67px 0 0;
+@media screen and (max-width: 480px) and (min-width: 320px) {
+  .footer__copyright {
+    font-size: 14px;
+  }
 }
