@@ -12,12 +12,13 @@
 
 @media screen and (max-width: 680px) and (min-width: 320px) {
   .header {
-    margin-top: 28px;
-    margin-left: 27px;
+    margin: 28px 0 0;
     padding-bottom: 32px;
+    max-width: inherit;
   }
 
   .header__logo {
+    margin-left: 27px;
     background-image: url(../images/logo\ small.svg);
     width: 126px;
     height: 24px;
