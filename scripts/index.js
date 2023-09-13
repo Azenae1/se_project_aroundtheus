@@ -1,27 +1,28 @@
 const initialCards = [
   {
     title: "Architecture geometry",
-    link: "https://imgur.com/iX4Y4G7",
+    link: "https://imgur.com/xyupL3w",
   },
   {
     title: "Lost in the Wild",
-    link: "https://imgur.com/eW8KDHi",
+    link: "https://imgur.com/49utHPV",
   },
   {
     title: "Tretyakov gallery",
-    link: "https://imgur.com/VfwhaLy",
+    link: "https://imgur.com/Pct2VsM",
   },
   {
     title: "Construction grid",
-    link: "https://imgur.com/hEp4YXh",
+    link: "https://imgur.com/pRck4w7",
   },
   {
     title: "Church window",
-    link: "https://imgur.com/2eVFSi8",
+    link: "https://imgur.com/pxdVMpn",
   },
   {
     title: "Stairs",
-    link: "https://imgur.com/MMY1UjL",
+    link: "https://imgur.com/FYpxoNh",
   },
 ];
+
 console.log(initialCards);
