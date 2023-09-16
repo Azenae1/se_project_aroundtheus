@@ -1,0 +1,108 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  padding: 0 19px;
+}
+
+.modal__opened {
+  display: flex;
+}
+
+.modal__container {
+  position: relative;
+  width: 358px;
+  background-color: #fff;
+  color: black;
+  font-family: "Inter", Arial, sans-serif;
+  padding: 34px 36px 36px;
+  border-radius: 10px;
+}
+
+.modal__close-button {
+  position: absolute;
+  top: -48px;
+  right: -48px;
+  background: transparent url(../images/Close\ Icon.svg) center no-repeat;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.modal__close-button:hover {
+  opacity: 0.6;
+}
+
+.modal__heading {
+  margin: 0 0 54px;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.modal__input {
+  padding: 0 0 13px;
+  width: 358px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+}
+
+.modal__save-button {
+  width: 358px;
+  height: 50px;
+  padding: 0;
+  margin-top: 18px;
+  background: black;
+  border-radius: 2px;
+  background-size: contain;
+  border: none;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  color: #fff;
+  font-size: 18px;
+}
+
+.modal__save-button:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 680px) and (min-width: 320px) {
+  .modal__container {
+    width: 282px;
+    padding: 25px 22px;
+    box-sizing: border-box;
+  }
+
+  .modal__close-button {
+    width: 26px;
+    height: 26px;
+    right: 0;
+    top: -40px;
+  }
+
+  .modal__heading {
+    margin: 0 0 75px;
+    font-size: 18px;
+  }
+
+  .modal__input {
+    width: 238px;
+  }
+
+  .modal__save-button {
+    width: 238px;
+    height: 46px;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+}
