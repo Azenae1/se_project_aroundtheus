@@ -31,10 +31,15 @@ const profileEditBtn = document.querySelector("#profile-edit-btn");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileCloseBtn = document.querySelector("#modal-close-btn");
 
+function toggleModalVisibility(modalWindow) {
+  modalWindow.classList.toggle("modal_opened");
+}
+
 profileEditBtn.addEventListener("click", () => {
-  profileEditModal.classList.add("modal_opened");
+  toggleModalVisibility(profileEditModal);
 });
 
 profileCloseBtn.addEventListener("click", () => {
-  profileEditModal.classList.remove("modal_opened");
+  toggleModalVisibility(profileEditModal);
+  // profileEditModal.classList.remove("modal_opened");
 });
