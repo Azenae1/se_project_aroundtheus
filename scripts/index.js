@@ -29,7 +29,7 @@ console.log(initialCards);
 
 const profileEditBtn = document.querySelector("#profile-edit-btn");
 const profileEditModal = document.querySelector("#profile-edit-modal");
-const profileCloseBtn = document.querySelector("#modal-close-btn");
+const profileCloseBtn = profileEditModal.querySelector("#modal-close-btn");
 const profileName = document.querySelector("#profile-name");
 const profileDescription = document.querySelector("#profile-description");
 const profileNameInput = document.querySelector("#profile-name-input");
@@ -40,6 +40,9 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const cardListEl = document.querySelector(".cards__list");
+const profileAddBtn = document.querySelector("#profile-add-btn");
+const profileAddModal = document.querySelector("#profile-add-modal");
+const newCardCloseBtn = profileAddModal.querySelector("#modal-close-btn");
 
 function toggleModalVisibility(modalWindow) {
   modalWindow.classList.toggle("modal_opened");
@@ -72,6 +75,13 @@ profileEditForm.addEventListener("submit", (e) => {
   profileDescription.textContent = profileDescriptionInput.value;
 
   toggleModalVisibility(profileEditModal);
+});
+
+profileAddBtn.addEventListener("click", () => {
+  toggleModalVisibility(profileAddModal);
+});
+newCardCloseBtn.addEventListener("click", () => {
+  toggleModalVisibility(profileAddModal);
 });
 
 initialCards.forEach((cardData) => {
