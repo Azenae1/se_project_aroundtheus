@@ -43,6 +43,11 @@
   cursor: pointer;
 }
 
+.card__favorite-button_pressed {
+  background: url(../images/like.svg);
+  padding: 9px;
+}
+
 .card__favorite-button:hover {
   opacity: 0.5;
 }

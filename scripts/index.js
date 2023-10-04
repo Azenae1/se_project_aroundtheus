@@ -1,7 +1,7 @@
 const initialCards = [
   {
-    name: "Architecture geometry",
-    link: "https://i.pinimg.com/originals/24/ae/fe/24aefe8f2484c22d981e0558727b0652.png",
+    name: "Church window",
+    link: "https://i.pinimg.com/originals/7a/89/e4/7a89e4ded58bb865c17d03a4bb0c6a14.png",
   },
   {
     name: "Lost in the Wild",
@@ -19,9 +19,10 @@ const initialCards = [
     name: "Stairs",
     link: "https://i.pinimg.com/originals/04/59/24/045924c2685a15901f44dcc559942afd.png",
   },
+
   {
-    name: "Church window",
-    link: "https://i.pinimg.com/originals/7a/89/e4/7a89e4ded58bb865c17d03a4bb0c6a14.png",
+    name: "Architecture geometry",
+    link: "https://i.pinimg.com/originals/24/ae/fe/24aefe8f2484c22d981e0558727b0652.png",
   },
 ];
 
@@ -53,6 +54,10 @@ function toggleModalVisibility(modalWindow) {
   modalWindow.classList.toggle("modal_opened");
 }
 
+function toggleLikeButton(like) {
+  like.classList.toggle("card__favorite-button_pressed");
+}
+
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
   wrapper.prepend(cardElement);
@@ -62,10 +67,14 @@ function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardNameEl = cardElement.querySelector(".card__name");
+  const likeBtn = cardElement.querySelector(".card__favorite-button");
 
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
   cardNameEl.textContent = cardData.name;
+  likeBtn.addEventListener("click", () => {
+    toggleLikeButton(likeBtn);
+  });
   return cardElement;
 }
 
