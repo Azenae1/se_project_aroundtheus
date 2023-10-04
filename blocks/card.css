@@ -8,10 +8,27 @@
   overflow: hidden;
 }
 
+.card__delete-button {
+  background: transparent url(../images/Trash.svg) center no-repeat;
+  background: transparent url(../images/Trash.svg) center no-repeat;
+  position: absolute;
+  margin-top: 18px;
+  margin-left: 249px;
+  height: 21px;
+  width: 19px;
+  border: none;
+  cursor: pointer;
+}
+
+.card__delete-button:hover {
+  opacity: 0.5;
+}
+
 .card__image {
   width: 282px;
   height: 282px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .card__description {
@@ -44,8 +61,7 @@
 }
 
 .card__favorite-button_pressed {
-  background: url(../images/like.svg);
-  padding: 9px;
+  background: url(../images/like.svg) center no-repeat;
 }
 
 .card__favorite-button:hover {

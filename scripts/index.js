@@ -58,6 +58,10 @@ function toggleLikeButton(like) {
   like.classList.toggle("card__favorite-button_pressed");
 }
 
+function toggleDeleteButton(trash) {
+  trash.remove();
+}
+
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
   wrapper.prepend(cardElement);
@@ -68,12 +72,16 @@ function getCardElement(cardData) {
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardNameEl = cardElement.querySelector(".card__name");
   const likeBtn = cardElement.querySelector(".card__favorite-button");
+  const deleteBtn = cardElement.querySelector(".card__delete-button");
 
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
   cardNameEl.textContent = cardData.name;
   likeBtn.addEventListener("click", () => {
     toggleLikeButton(likeBtn);
+  });
+  deleteBtn.addEventListener("click", () => {
+    toggleDeleteButton(cardElement);
   });
   return cardElement;
 }
