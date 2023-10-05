@@ -31,6 +31,11 @@
   cursor: pointer;
 }
 
+.card__image_preview {
+  max-width: 75vw;
+  max-height: 75vw;
+}
+
 .card__description {
   display: flex;
   justify-content: space-between;
@@ -49,6 +54,11 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.card__name_preview {
+  margin-top: 10px;
+  font-size: 12px;
 }
 
 .card__favorite-button {

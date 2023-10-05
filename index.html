@@ -96,12 +96,22 @@
       </div>
     </div>
 
+    <!-- Card preview modal -->
+
+    <div class="modal" id="card-preview-modal">
+      <div class="modal__container">
+        <button class="modal__close-button" id="modal-close-btn"></button>
+        <img src="" alt="" class="card__image_preview" id="card-image" />
+        <p class="card__name_preview" id="card-name"></p>
+      </div>
+    </div>
+
     <template id="card-template">
       <li class="card">
         <button class="card__delete-button" type="button"></button>
-        <img src="" alt="" class="card__image" />
+        <img src="" alt="" class="card__image" id="card-image" />
         <div class="card__description">
-          <h2 class="card__name"></h2>
+          <h2 class="card__name" id="card-name"></h2>
           <button class="card__favorite-button" type="button"></button>
         </div>
       </li>

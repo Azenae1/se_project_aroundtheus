@@ -41,6 +41,7 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 //
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
+const cardTemplatePrev = document.querySelector("#card-preview");
 const cardListEl = document.querySelector(".cards__list");
 //
 const profileAddBtn = document.querySelector("#profile-add-btn");
@@ -49,6 +50,13 @@ const newCardCloseBtn = profileAddModal.querySelector("#modal-close-btn");
 const profileAddForm = profileAddModal.querySelector(".modal__form");
 const cardTitleInput = document.querySelector("#card-title-input");
 const cardUrlInput = document.querySelector("#card-url-input");
+//
+const cardPrevModal = document.querySelector("#card-preview-modal");
+const cardImagePrev = document.querySelector("#card-image");
+const cardTitlePrev = document.querySelector("#card-name");
+const cardPrevCloseBtn = document.querySelector("#modal-close-btn");
+
+// Functions
 
 function toggleModalVisibility(modalWindow) {
   modalWindow.classList.toggle("modal_opened");
@@ -69,19 +77,29 @@ function renderCard(cardData, wrapper) {
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardNameEl = cardElement.querySelector(".card__name");
+  const cardImageEl = cardElement.querySelector("#card-image");
+  const cardNameEl = cardElement.querySelector("#card-name");
   const likeBtn = cardElement.querySelector(".card__favorite-button");
   const deleteBtn = cardElement.querySelector(".card__delete-button");
+  // const cardCloseBtn = cardElement.querySelector("#modal-close-btn");
+  // const cardNamePrev = cardElement.querySelector(".card__name_preview");
+  // const cardImagePrev = cardElement.querySelector(".card__image_preview");
 
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
   cardNameEl.textContent = cardData.name;
+
   likeBtn.addEventListener("click", () => {
     toggleLikeButton(likeBtn);
   });
   deleteBtn.addEventListener("click", () => {
     toggleDeleteButton(cardElement);
+  });
+  cardImageEl.addEventListener("click", () => {
+    cardImagePrev.src = cardData.link;
+    cardImagePrev.alt = cardData.name;
+    cardTemplatePrev.textContent = cardData.name;
+    toggleModalVisibility(cardPrevModal);
   });
   return cardElement;
 }
