@@ -131,7 +131,9 @@ profileAddForm.addEventListener("submit", (a) => {
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardListEl);
+
   closeModal(profileAddModal);
+  profileAddForm.reset();
 });
 
 closeButtons.forEach((button) => {
