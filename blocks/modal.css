@@ -40,6 +40,18 @@
   position: relative;
 }
 
+.modal__image-preview {
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.modal__name-preview {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-family: "Inter";
+  font-size: 12px;
+}
+
 .modal__close-button {
   position: absolute;
   top: -48px;

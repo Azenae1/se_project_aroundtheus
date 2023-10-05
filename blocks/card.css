@@ -31,11 +31,6 @@
   cursor: pointer;
 }
 
-.card__image-preview {
-  max-width: 75vw;
-  max-height: 75vh;
-}
-
 .card__description {
   display: flex;
   justify-content: space-between;
@@ -54,13 +49,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-
-.card__name-preview {
-  margin-top: 10px;
-  margin-bottom: 0;
-  font-family: "Inter";
-  font-size: 12px;
 }
 
 .card__favorite-button {
