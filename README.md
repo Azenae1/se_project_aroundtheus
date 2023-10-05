@@ -13,6 +13,10 @@ This project is made so all the elements are displayed correctly on popular scre
 
 **New features**
 Partly working Profile editing function, cards are now not hardly coded in HTML.
+-profile editing done (no server connection)
+-added New card function
+-added Like and Delete functions
+-added Image preview function
 
 **Figma**
 
