@@ -31,7 +31,7 @@
   cursor: pointer;
 }
 
-.card__image_preview {
+.card__image-preview {
   max-width: 75vw;
   max-height: 75vh;
 }
@@ -56,7 +56,7 @@
   overflow: hidden;
 }
 
-.card__name_preview {
+.card__name-preview {
   margin-top: 10px;
   margin-bottom: 0;
   font-family: "Inter";

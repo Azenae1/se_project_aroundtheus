@@ -20,7 +20,7 @@
   visibility: visible;
 }
 
-.modal__preview {
+.modal_preview {
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -36,7 +36,7 @@
   border-radius: 10px;
 }
 
-.modal__container_prev {
+.modal__container-prev {
   position: relative;
 }
 
