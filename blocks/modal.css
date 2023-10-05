@@ -20,6 +20,12 @@
   visibility: visible;
 }
 
+.modal__preview {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
 .modal__container {
   position: relative;
   width: 358px;
@@ -28,6 +34,10 @@
   font-family: "Inter", Arial, sans-serif;
   padding: 34px 36px 36px;
   border-radius: 10px;
+}
+
+.modal__container_prev {
+  position: relative;
 }
 
 .modal__close-button {
