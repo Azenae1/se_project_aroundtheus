@@ -32,7 +32,7 @@ console.log(initialCards);
 
 const profileEditBtn = document.querySelector("#profile-edit-btn");
 const profileEditModal = document.querySelector("#profile-edit-modal");
-const profileCloseBtn = profileEditModal.querySelector("#modal-close-btn");
+const profileCloseBtn = profileEditModal.querySelector("#edit-close-btn");
 const profileName = document.querySelector("#profile-name");
 const profileDescription = document.querySelector("#profile-description");
 const profileNameInput = document.querySelector("#profile-name-input");
@@ -47,7 +47,7 @@ const cardListEl = document.querySelector(".cards__list");
 //
 const profileAddBtn = document.querySelector("#profile-add-btn");
 const profileAddModal = document.querySelector("#profile-add-modal");
-const newCardCloseBtn = profileAddModal.querySelector("#modal-close-btn");
+const newCardCloseBtn = profileAddModal.querySelector("#add-close-btn");
 const profileAddForm = profileAddModal.querySelector(".modal__form");
 const cardTitleInput = document.querySelector("#card-title-input");
 const cardUrlInput = document.querySelector("#card-url-input");
@@ -55,7 +55,7 @@ const cardUrlInput = document.querySelector("#card-url-input");
 const cardPrevModal = document.querySelector("#card-preview-modal");
 const cardImagePrev = document.querySelector("#card-image");
 const cardTitlePrev = document.querySelector("#card-name");
-const cardPrevCloseBtn = cardPrevModal.querySelector("#modal-close-btn");
+const cardPrevCloseBtn = cardPrevModal.querySelector("#prev-close-btn");
 
 // Functions
 
