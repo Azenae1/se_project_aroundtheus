@@ -1,10 +1,19 @@
+function setEventListeners(formEl, opt) {
+  const { inputSelector } = opt;
+  const inputEls = [...formEl.querySelectorAll(inputSelector)];
+  inputEls.forEach((inputEl) => {
+    inputEl.addEventListener("input", () => console.log("input"));
+  });
+}
+
 function enableValidation(opt) {
   //same as Array.from
-  const formElements = [...document.querySelectorAll(opt.formSelector)];
-  formElements.forEach((formElement) => {
-    formElement.addEventListener("submit", (evt) => {
+  const formEls = [...document.querySelectorAll(opt.formSelector)];
+  formEls.forEach((formEl) => {
+    formEl.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
+    setEventListeners(formEl, opt);
   });
 }
 
