@@ -108,6 +108,18 @@
   opacity: 0.8;
 }
 
+.modal__save-button_disabled {
+  background: none;
+  opacity: 0.2;
+  border: 1px solid black;
+  color: black;
+  cursor: auto;
+}
+
+.modal__save-button_disabled:hover {
+  opacity: 0.2;
+}
+
 @media screen and (max-width: 680px) and (min-width: 320px) {
   .modal__container {
     width: 282px;
