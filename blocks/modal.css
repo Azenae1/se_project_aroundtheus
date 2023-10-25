@@ -69,7 +69,7 @@
 }
 
 .modal__heading {
-  margin: 0 0 54px;
+  margin: 0 0 41px;
   font-size: 24px;
   font-weight: 900;
 }
@@ -77,17 +77,23 @@
 .modal__input {
   padding: 0 0 13px;
   width: 358px;
-  margin-bottom: 30px;
+  margin-top: 13px;
+  margin-bottom: 5px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   font-size: 14px;
+}
+
+.modal__error {
+  color: #f00;
+  font-size: 12px;
 }
 
 .modal__save-button {
   width: 358px;
   height: 50px;
   padding: 0;
-  margin-top: 18px;
+  margin-top: 31px;
   background: black;
   border-radius: 2px;
   background-size: contain;
