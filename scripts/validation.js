@@ -1,8 +1,25 @@
+function showInputError(formEl, inputEl, { inputErrorClass }) {
+  const errorMessageEl = formEl.querySelector(`#` + inputEl.id + `-error`);
+  inputEl.classList.add(inputErrorClass);
+  errorMessageEl.textContent = inputEl.validationMessage;
+  errorMessageEl.classList.add(errorClass);
+}
+
+function checkInputValidity(formEl, inputEl, opt) {
+  if (!inputEl.validity.valid) {
+    showInputError(formEl, inputEl, opt);
+  } else {
+    hideInputError(formEl, inputEl, opt);
+  }
+}
+
 function setEventListeners(formEl, opt) {
   const { inputSelector } = opt;
   const inputEls = [...formEl.querySelectorAll(inputSelector)];
   inputEls.forEach((inputEl) => {
-    inputEl.addEventListener("input", () => console.log("input"));
+    inputEl.addEventListener("input", (evt) => {
+      checkInputValidity(formEl, inputEl, opt);
+    });
   });
 }
 
