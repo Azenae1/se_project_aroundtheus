@@ -54,11 +54,13 @@ const cardPrevModal = document.querySelector("#card-preview-modal");
 const cardImagePrev = document.querySelector("#card-image");
 const cardTitlePrev = document.querySelector("#card-name");
 const closeButtons = document.querySelectorAll(".modal__close-button");
+const modals = document.querySelectorAll(".modal");
 
 // Functions
 
 function openModal(modalWindow) {
   modalWindow.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscButton);
 }
 
 function closeModal(modalWindow) {
@@ -71,6 +73,13 @@ function toggleLikeButton(like) {
 
 function handleDeleteButton(card) {
   card.remove();
+}
+
+function handleEscButton(evt) {
+  if (evt.key === "Escape") {
+    const modal = document.querySelector(".modal_opened");
+    closeModal(modal);
+  }
 }
 
 function renderCard(cardData, wrapper) {
@@ -140,6 +149,17 @@ closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
 
   button.addEventListener("click", () => closeModal(popup));
+});
+
+modals.forEach((modal) => {
+  modal.addEventListener("click", (evt) => {
+    if (evt.target.classList.contains("modal_opened")) {
+      closeModal(modal);
+    }
+    if (evt.target.classList.contains("modal__close-button")) {
+      closeModal(modal);
+    }
+  });
 });
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));

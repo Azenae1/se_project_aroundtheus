@@ -20,21 +20,18 @@ function checkInputValidity(formEl, inputEl, opt) {
   }
 }
 
+function hasInvalidInput(inputList) {
+  return !inputList.every((inputEl) => inputEl.validity.valid);
+}
+
 function toggleButtonState(inputEls, submitBtn, { inactiveButtonClass }) {
-  let foundInvalid = false;
-  inputEls.forEach((inputEl) => {
-    if (!inputEl.validity.valid) {
-      foundInvalid = true;
-    }
-  });
-  if (foundInvalid) {
+  if (hasInvalidInput(inputEls)) {
     submitBtn.classList.add(inactiveButtonClass);
     submitBtn.disabled = true;
     return;
-  } else {
-    submitBtn.classList.remove(inactiveButtonClass);
-    submitBtn.disabled = false;
   }
+  submitBtn.classList.remove(inactiveButtonClass);
+  submitBtn.disabled = false;
 }
 
 function setEventListeners(formEl, opt) {
