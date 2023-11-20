@@ -1,3 +1,5 @@
+import Card from "../components/Card.js";
+
 const initialCards = [
   {
     name: "Church window",
@@ -27,6 +29,13 @@ const initialCards = [
 ];
 
 console.log(initialCards);
+
+const cardData = {
+  name: "Church window",
+  link: "https://i.pinimg.com/originals/7a/89/e4/7a89e4ded58bb865c17d03a4bb0c6a14.png",
+};
+const card = new Card(cardData, "#card-template");
+card.getView();
 
 // Elements
 
