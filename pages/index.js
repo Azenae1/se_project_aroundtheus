@@ -40,6 +40,20 @@ const card = new Card(cardData, "#card-template");
 card.getView();
 
 // Elements
+const validationSettings = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__save-button",
+  inactiveButtonClass: ".modal__save-button_disabled",
+  inputErrorClass: ".modal__error",
+  errorClass: ".???",
+};
+const editFormEl = profileEditModal.querySelector(".modal__form");
+const addFormEl = cardAddModal.querySelector(".modal__form");
+
+const editFormValidator = new FormValidator(validationSettings, editFormEl);
+const addFormValidator = new FormValidator(validationSettings, addFormEl);
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
 
 const profileEditBtn = document.querySelector("#profile-edit-btn");
 const profileEditModal = document.querySelector("#profile-edit-modal");
