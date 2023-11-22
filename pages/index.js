@@ -1,4 +1,5 @@
 import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
   {
@@ -30,6 +31,7 @@ const initialCards = [
 
 console.log(initialCards);
 
+//delete
 const cardData = {
   name: "Church window",
   link: "https://i.pinimg.com/originals/7a/89/e4/7a89e4ded58bb865c17d03a4bb0c6a14.png",
