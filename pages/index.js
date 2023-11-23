@@ -93,13 +93,13 @@ function closeModal(modalWindow) {
   document.removeEventListener("keydown", handleEscButton);
 }
 
-function toggleLikeButton(like) {
-  like.classList.toggle("card__favorite-button_pressed");
-}
+// function toggleLikeButton(like) {
+//   like.classList.toggle("card__favorite-button_pressed");
+// }
 
-function handleDeleteButton(card) {
-  card.remove();
-}
+// function handleDeleteButton(card) {
+//   card.remove();
+// }
 
 function handleEscButton(evt) {
   if (evt.key === "Escape") {
@@ -124,12 +124,12 @@ function getCardElement(cardData) {
   cardImageEl.alt = cardData.name;
   cardNameEl.textContent = cardData.name;
 
-  likeBtn.addEventListener("click", () => {
-    toggleLikeButton(likeBtn);
-  });
-  deleteBtn.addEventListener("click", () => {
-    handleDeleteButton(cardElement);
-  });
+  // likeBtn.addEventListener("click", () => {
+  //   toggleLikeButton(likeBtn);
+  // });
+  // deleteBtn.addEventListener("click", () => {
+  //   handleDeleteButton(cardElement);
+  // });
   cardImageEl.addEventListener("click", () => {
     cardImagePrev.src = cardData.link;
     cardImagePrev.alt = cardData.name;
