@@ -29,7 +29,6 @@ const initialCards = [
   },
 ];
 
-
 //delete
 const cardData = {
   name: "Church window",
@@ -40,7 +39,7 @@ const card = new Card(cardData, "#card-template");
 card.getView();
 
 // Elements
-const validationSettings = {
+const settings = {
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__save-button",
   inactiveButtonClass: ".modal__save-button_disabled",
@@ -48,16 +47,18 @@ const validationSettings = {
   errorClass: ".modal__error_visible",
 };
 
+const profileEditModal = document.querySelector("#profile-edit-modal");
 const editFormEl = profileEditModal.querySelector(".modal__form");
+const cardAddModal = document.querySelector("#profile-add-modal");
 const addFormEl = cardAddModal.querySelector(".modal__form");
 
-const editFormValidator = new FormValidator(validationSettings, editFormEl);
-const addFormValidator = new FormValidator(validationSettings, addFormEl);
+const editFormValidator = new FormValidator(settings, editFormEl);
+const addFormValidator = new FormValidator(settings, addFormEl);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
 // const profileEditBtn = document.querySelector("#profile-edit-btn");
-const profileEditModal = document.querySelector("#profile-edit-modal");
+
 // const profileName = document.querySelector("#profile-name");
 // const profileDescription = document.querySelector("#profile-description");
 // const profileNameInput = document.querySelector("#profile-name-input");
@@ -71,7 +72,7 @@ const cardTemplate =
 const cardListEl = document.querySelector(".cards__list");
 //
 // const cardAddBtn = document.querySelector("#profile-add-btn");
-const cardAddModal = document.querySelector("#profile-add-modal");
+
 // const cardAddForm = document.forms["profile-add-form"];
 // const cardTitleInput = document.querySelector("#card-title-input");
 // const cardUrlInput = document.querySelector("#card-url-input");
@@ -109,9 +110,9 @@ function handleEscButton(evt) {
   }
 }
 
-const renderCard(cardData, wrapper) {
+function renderCard(cardData, wrapper) {
   const card = new Card(cardData, "#card-template");
-  //const cardElement = getCardElement(cardData);
+  // const cardElement = getCardElement(cardData);
   wrapper.prepend(card.getView());
 }
 

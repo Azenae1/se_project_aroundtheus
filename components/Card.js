@@ -34,9 +34,9 @@ export default class Card {
     this._cardElement = null;
   }
 
-  _handleImageClick() {
+  _handleImageClick = () => {
     this._handleImageClick({ name: this._name, link: this._link });
-  }
+  };
 
   _getTemplate() {
     return document
@@ -48,6 +48,12 @@ export default class Card {
   getView() {
     this._cardElement = this._getTemplate();
     //getCardEl (view)
+    this._cardImageEl = this._cardElement.querySelector("#card-image");
+    this._cardTitleEl = this._cardElement.querySelector("#card-name");
+    this._cardImageEl.src = this._link;
+    this._cardImageEl.alt = this._name;
+    this._cardTitleEl.textContent = this._name;
+
     this._cardElement.querySelector(
       "#card-image"
     ).style.backgroundImage = `url(${this._link})`;
