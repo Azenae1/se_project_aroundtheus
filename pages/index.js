@@ -37,6 +37,7 @@ const cardData = {
   link: "https://i.pinimg.com/originals/7a/89/e4/7a89e4ded58bb865c17d03a4bb0c6a14.png",
 };
 const card = new Card(cardData, "#card-template");
+
 card.getView();
 
 // Elements
@@ -45,7 +46,7 @@ const validationSettings = {
   submitButtonSelector: ".modal__save-button",
   inactiveButtonClass: ".modal__save-button_disabled",
   inputErrorClass: ".modal__error",
-  errorClass: ".???",
+  errorClass: ".modal__error_visible",
 };
 const editFormEl = profileEditModal.querySelector(".modal__form");
 const addFormEl = cardAddModal.querySelector(".modal__form");
@@ -108,9 +109,10 @@ function handleEscButton(evt) {
   }
 }
 
-function renderCard(cardData, wrapper) {
-  const cardElement = getCardElement(cardData);
-  wrapper.prepend(cardElement);
+const renderCard(cardData, wrapper) {
+  const card = new Card(cardData, "#card-template");
+  //const cardElement = getCardElement(cardData);
+  wrapper.prepend(card.getView());
 }
 
 function getCardElement(cardData) {

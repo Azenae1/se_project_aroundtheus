@@ -34,14 +34,26 @@ export default class Card {
     this._cardElement = null;
   }
 
-  getView() {
-    this._cardElement = document
+  _handleImageClick() {
+    this._handleImageClick({ name: this._name, link: this._link });
+  }
+
+  _getTemplate() {
+    return document
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
+  }
 
+  getView() {
+    this._cardElement = this._getTemplate();
     //getCardEl (view)
+    this._cardElement.querySelector(
+      "#card-image"
+    ).style.backgroundImage = `url(${this._link})`;
+    this._cardElement.querySelector("#card-name").textContent = this._name;
     this._setEventListeners();
     //return card
+    return this._cardElement;
   }
 }
