@@ -54,10 +54,6 @@ export default class Card {
     this._cardImageEl.alt = this._name;
     this._cardTitleEl.textContent = this._name;
 
-    this._cardElement.querySelector(
-      "#card-image"
-    ).style.backgroundImage = `url(${this._link})`;
-    this._cardElement.querySelector("#card-name").textContent = this._name;
     this._setEventListeners();
     //return card
     return this._cardElement;
