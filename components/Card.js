@@ -7,25 +7,19 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._cardElement
-      .querySelector(".card__favorite-button")
-      .addEventListener("click", () => {
-        this._handleFavIcon();
-      });
-    this._cardElement
-      .querySelector(".card__delete-button")
-      .addEventListener("click", () => {
-        this._handleDelIcon();
-      });
+    this._cardFavIcon.addEventListener("click", () => {
+      this._handleFavIcon();
+    });
+    this._cardDelIcon.addEventListener("click", () => {
+      this._handleDelIcon();
+    });
     this._cardImageEl.addEventListener("click", () => {
       this._handleImageClick({ name: this._name, link: this._link });
     });
   }
 
   _handleFavIcon() {
-    this._cardElement
-      .querySelector(".card__favorite-button")
-      .classList.toggle("card__favorite-button_pressed");
+    this._cardFavIcon.classList.toggle("card__favorite-button_pressed");
   }
 
   _handleDelIcon() {
@@ -52,6 +46,10 @@ export default class Card {
     this._cardImageEl.src = this._link;
     this._cardImageEl.alt = this._name;
     this._cardTitleEl.textContent = this._name;
+    this._cardFavIcon = this._cardElement.querySelector(
+      ".card__favorite-button"
+    );
+    this._cardDelIcon = this._cardElement.querySelector(".card__delete-button");
 
     this._setEventListeners();
     return this._cardElement;
