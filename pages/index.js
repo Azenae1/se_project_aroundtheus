@@ -57,21 +57,21 @@ const addFormValidator = new FormValidator(settings, addFormEl);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-// const profileEditBtn = document.querySelector("#profile-edit-btn");
+const profileEditBtn = document.querySelector("#profile-edit-btn");
 
-// const profileName = document.querySelector("#profile-name");
-// const profileDescription = document.querySelector("#profile-description");
-// const profileNameInput = document.querySelector("#profile-name-input");
-// const profileDescriptionInput = document.querySelector(
-//   "#profile-description-input"
-// );
+const profileName = document.querySelector("#profile-name");
+const profileDescription = document.querySelector("#profile-description");
+const profileNameInput = document.querySelector("#profile-name-input");
+const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
 // const profileEditForm = document.forms["profile-edit-form"];
 //
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const cardListEl = document.querySelector(".cards__list");
 //
-// const cardAddBtn = document.querySelector("#profile-add-btn");
+const cardAddBtn = document.querySelector("#profile-add-btn");
 
 // const cardAddForm = document.forms["profile-add-form"];
 // const cardTitleInput = document.querySelector("#card-title-input");
@@ -152,12 +152,12 @@ function getCardElement(cardData) {
 
 // Event listeners
 
-// profileEditBtn.addEventListener("click", () => {
-//   profileNameInput.value = profileName.textContent;
-//   profileDescriptionInput.value = profileDescription.textContent.trim();
+profileEditBtn.addEventListener("click", () => {
+  profileNameInput.value = profileName.textContent;
+  profileDescriptionInput.value = profileDescription.textContent.trim();
 
-//   openModal(profileEditModal);
-// });
+  openModal(profileEditModal);
+});
 
 // profileEditForm.addEventListener("submit", (e) => {
 //   e.preventDefault();
@@ -167,9 +167,9 @@ function getCardElement(cardData) {
 //   closeModal(profileEditModal);
 // });
 
-// cardAddBtn.addEventListener("click", () => {
-//   openModal(cardAddModal);
-// });
+cardAddBtn.addEventListener("click", () => {
+  openModal(cardAddModal);
+});
 
 // cardAddForm.addEventListener("submit", (a) => {
 //   a.preventDefault();
