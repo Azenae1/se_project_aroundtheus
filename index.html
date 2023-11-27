@@ -51,7 +51,11 @@
       <div class="modal__container">
         <button class="modal__close-button" id="edit-close-btn"></button>
         <p class="modal__heading">Edit Profile</p>
-        <form class="modal__form" name="profile-edit-form">
+        <form
+          class="modal__form"
+          name="profile-edit-form"
+          id="profile-edit-form"
+        >
           <label class="modal__label">
             <input
               class="modal__input"
@@ -147,7 +151,8 @@
       </li>
     </template>
 
-    <script src="./pages/index.js"></script>
-    <script src="./scripts/validate.js"></script>
+    <script src="./pages/index.js" type="module"></script>
+    <!-- <script src="./scripts/validate.js"></script> -->
+    <!-- remove -->
   </body>
 </html>
