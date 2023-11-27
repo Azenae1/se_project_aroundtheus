@@ -106,6 +106,7 @@ function handleProfileEditSubmit(evt) {
   profileName.textContent = profileNameInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   editFormValidator.disableSubmitButton();
+
   closeModal(profileEditModal);
 }
 
@@ -118,11 +119,18 @@ function handleAddCardSubmit(evt) {
   evt.target.reset();
 
   closeModal(cardAddModal);
+  cardTitleInput.value = "";
+  cardUrlInput.value = "";
+}
+
+function createCard(cardData, cardSelector, handleImageClick) {
+  const cardEl = new Card(cardData, cardSelector, handleImageClick);
+  return cardEl.getView();
 }
 
 function renderCard(cardData, wrapper) {
-  const card = new Card(cardData, "#card-template", handleImageClick);
-  wrapper.prepend(card.getView());
+  const card = createCard(cardData, "#card-template", handleImageClick);
+  wrapper.prepend(card);
 }
 
 // Event listeners
@@ -130,6 +138,7 @@ function renderCard(cardData, wrapper) {
 profileEditBtn.addEventListener("click", () => {
   profileNameInput.value = profileName.textContent;
   profileDescriptionInput.value = profileDescription.textContent.trim();
+  editFormValidator.resetValidation();
 
   openModal(profileEditModal);
 });
@@ -137,9 +146,6 @@ profileEditBtn.addEventListener("click", () => {
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 cardAddBtn.addEventListener("click", () => {
-  cardTitleInput.value = "";
-  cardUrlInput.value = "";
-
   openModal(cardAddModal);
 });
 
