@@ -20,7 +20,6 @@ export default class Card {
     this._cardImageEl.addEventListener("click", () => {
       this._handleImageClick({ name: this._name, link: this._link });
     });
-    //
   }
 
   _handleFavIcon() {
@@ -47,7 +46,7 @@ export default class Card {
 
   getView() {
     this._cardElement = this._getTemplate();
-    //getCardEl (view)
+
     this._cardImageEl = this._cardElement.querySelector("#card-image");
     this._cardTitleEl = this._cardElement.querySelector("#card-name");
     this._cardImageEl.src = this._link;
@@ -55,7 +54,6 @@ export default class Card {
     this._cardTitleEl.textContent = this._name;
 
     this._setEventListeners();
-    //return card
     return this._cardElement;
   }
 }
