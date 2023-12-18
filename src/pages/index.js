@@ -39,7 +39,7 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
-const newCardPopup = new FormPopup("#profile-add-modal", () => {});
+const newCardPopup = new PopupWithForm("#profile-add-modal", () => {});
 
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const editFormEl = profileEditModal.querySelector(".modal__form");
