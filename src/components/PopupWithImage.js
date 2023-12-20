@@ -1,5 +1,5 @@
 import Popup from "./Popup";
-class PopupWithImage extends Popup {
+export default class PopupWithImage extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super({ popupSelector });
     this._popupForm = this._popupElement.querySelector(".modal__form");
