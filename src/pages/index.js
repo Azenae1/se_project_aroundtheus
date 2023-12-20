@@ -5,13 +5,22 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
-import { initialCards } from "../utils/constants.js";
-import { settings } from "../utils/constants.js";
+import { initialCards, settings, selectors } from "../utils/constants.js";
+
 import "./index.css";
 
 // Elements
 
 const newCardPopup = new PopupWithForm("#profile-add-modal", () => {});
+const cardSection = new Section({
+  renderer: (item) => {
+    const cardEl = new Card(item, selectors.cardTemplate);
+    cardSection.addItem(cardEl.getView());
+  },
+  selector: selectors.cardSection,
+});
+
+cardSection.renderItems(initialCards);
 
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const editFormEl = profileEditModal.querySelector(".modal__form");

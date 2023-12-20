@@ -33,3 +33,8 @@ export const settings = {
   inputErrorClass: "modal__error",
   errorClass: "modal__error_visible",
 };
+
+export const selectors = {
+  cardSection: ".cards__list",
+  cardTemplate: ".card-template",
+};
