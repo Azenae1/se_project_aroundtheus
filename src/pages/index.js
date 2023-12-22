@@ -11,16 +11,18 @@ import "./index.css";
 
 // Elements
 
-const newCardPopup = new PopupWithForm("#profile-add-modal", () => {});
-const cardSection = new Section({
-  renderer: (item) => {
-    const cardEl = new Card(item, selectors.cardTemplate);
-    cardSection.addItem(cardEl.getView());
+// const newCardPopup = new PopupWithForm("#profile-add-modal", () => {});
+const cardSection = new Section(
+  {
+    items: initialCards,
+    renderer: (cardData) => {
+      cardSection.addItem(createCard(cardData));
+    },
   },
-  selector: selectors.cardSection,
-});
+  ".card"
+);
 
-cardSection.renderItems(initialCards);
+cardSection.renderItems();
 
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const editFormEl = profileEditModal.querySelector(".modal__form");

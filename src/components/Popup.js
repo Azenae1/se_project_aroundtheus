@@ -1,18 +1,18 @@
 export default class Popup {
-    constructor({popupSelector}) {
-        this._popupElement = document.querySelector(popupSelector);
+  constructor({ popupSelector }) {
+    this._popupElement = document.querySelector(popupSelector);
 
-        open() {
+    // open() {
 
-        }
-        close() {
+    // }
+    // close() {
 
-        }
-        _handleEscClose() {
+    // }
+    // _handleEscClose() {
 
-        }
-        setEventListeners() {
+    // }
+    // setEventListeners() {
 
-        }
-    }
+    // }
+  }
 }
