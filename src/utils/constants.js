@@ -38,3 +38,15 @@ export const selectors = {
   cardSection: "cards__list",
   cardTemplate: ".card-template",
 };
+
+export const profileEditModal = document.querySelector("#profile-edit-modal");
+export const profileEditBtn = document.querySelector("#profile-edit-btn");
+
+export const profileNameInput = document.querySelector("#profile-name-input");
+const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
+
+export const cardAddModal = document.querySelector("#profile-add-modal");
+export const cardAddBtn = document.querySelector("#profile-add-btn");
+export const cardListEl = document.querySelector(".cards__list");
