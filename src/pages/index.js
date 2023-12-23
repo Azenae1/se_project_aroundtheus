@@ -1,5 +1,6 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import Popup from "../components/Popup.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
@@ -34,7 +35,7 @@ const profileDescription = document.querySelector("#profile-description");
 const cardTitleInput = document.querySelector("#card-title-input");
 const cardUrlInput = document.querySelector("#card-url-input");
 
-const cardPrevModal = document.querySelector("#card-preview-modal");
+// const cardPrevModal = document.querySelector("#card-preview-modal");
 const cardImagePrev = document.querySelector(".modal__image-preview");
 const cardTitlePrev = document.querySelector(".modal__name-preview");
 
@@ -87,17 +88,10 @@ popupWithImage.setEventListeners();
 
 // Functions
 
-function handleAddCardSubmit(evt) {
-  evt.preventDefault();
-  const name = cardTitleInput.value;
-  const link = cardUrlInput.value;
-  renderCard({ name, link }, cardListEl);
-  addFormValidator.disableSubmitButton();
-  evt.target.reset();
-
-  closeModal(cardAddModal);
-  cardTitleInput.value = "";
-  cardUrlInput.value = "";
+function handleAddCardSubmit(formData) {
+  const card = createCard({ name: formData.name, link: formData.link });
+  cardSection.addItem(card);
+  newCardPopup.close();
 }
 
 function handleProfileEditSubmit(evt) {
@@ -109,21 +103,23 @@ function handleProfileEditSubmit(evt) {
   closeModal(profileEditModal);
 }
 
-function createCard(cardData, cardSelector, handleImageClick) {
-  const cardEl = new Card(cardData, cardSelector, handleImageClick);
+function createCard(cardData) {
+  const cardEl = new Card(cardData, "#card-template", () => {
+    popupWithImage.open(cardData.link, cardData.name);
+  });
   return cardEl.getView();
 }
 
-function renderCard(cardData, wrapper) {
-  const card = createCard(cardData, "#card-template", handleImageClick);
-  wrapper.prepend(card);
-}
+// function renderCard(cardData, wrapper) {
+//   const card = createCard(cardData, "#card-template", handleImageClick);
+//   wrapper.prepend(card);
+// }
 
 function handleImageClick({ name, link }) {
   cardImagePrev.src = link;
   cardImagePrev.alt = name;
   cardTitlePrev.textContent = name;
-  openModal(cardPrevModal);
+  openModal(popupWithImage);
 }
 
 // function openModal(modalWindow) {

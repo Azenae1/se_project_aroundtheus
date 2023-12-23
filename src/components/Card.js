@@ -1,7 +1,7 @@
 export default class Card {
-  constructor({ name, link }, cardSelector, handleImageClick) {
-    this._name = name;
-    this._link = link;
+  constructor(cardData, cardSelector, handleImageClick) {
+    this._name = cardData.name;
+    this._link = cardData.link;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
   }
@@ -30,13 +30,6 @@ export default class Card {
   _handleImageClick = () => {
     this._handleImageClick({ name: this._name, link: this._link });
   };
-
-  // _getTemplate() {
-  //   return document
-  //     .querySelector(this._cardSelector)
-  //     .content.querySelector(".card")
-  //     .cloneNode(true);
-  // }
 
   getView() {
     this._cardElement = document
