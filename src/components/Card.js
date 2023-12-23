@@ -31,15 +31,18 @@ export default class Card {
     this._handleImageClick({ name: this._name, link: this._link });
   };
 
-  _getTemplate() {
-    return document
+  // _getTemplate() {
+  //   return document
+  //     .querySelector(this._cardSelector)
+  //     .content.querySelector(".card")
+  //     .cloneNode(true);
+  // }
+
+  getView() {
+    this._cardElement = document
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
-  }
-
-  getView() {
-    this._cardElement = this._getTemplate();
 
     this._cardImageEl = this._cardElement.querySelector("#card-image");
     this._cardTitleEl = this._cardElement.querySelector("#card-name");

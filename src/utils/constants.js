@@ -34,16 +34,11 @@ export const settings = {
   errorClass: "modal__error_visible",
 };
 
-export const selectors = {
-  cardSection: "cards__list",
-  cardTemplate: ".card-template",
-};
-
 export const profileEditModal = document.querySelector("#profile-edit-modal");
 export const profileEditBtn = document.querySelector("#profile-edit-btn");
 
 export const profileNameInput = document.querySelector("#profile-name-input");
-const profileDescriptionInput = document.querySelector(
+export const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 
