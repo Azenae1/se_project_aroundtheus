@@ -49,6 +49,10 @@ const addFormValidator = new FormValidator(settings, addFormEl);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
+cardAddBtn.addEventListener("click", () => {
+  newCardPopup.open();
+});
+
 const newCardPopup = new PopupWithForm(
   "#profile-add-modal",
   handleAddCardSubmit
@@ -115,12 +119,12 @@ function createCard(cardData) {
 //   wrapper.prepend(card);
 // }
 
-function handleImageClick({ name, link }) {
-  cardImagePrev.src = link;
-  cardImagePrev.alt = name;
-  cardTitlePrev.textContent = name;
-  openModal(popupWithImage);
-}
+// function handleImageClick({ name, link }) {
+//   cardImagePrev.src = link;
+//   cardImagePrev.alt = name;
+//   cardTitlePrev.textContent = name;
+//   openModal(popupWithImage);
+// }
 
 // function openModal(modalWindow) {
 //   modalWindow.classList.add("modal_opened");
