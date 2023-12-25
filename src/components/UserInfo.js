@@ -5,6 +5,7 @@ export default class UserInfo {
   }
   getUserInfo() {
     // returns object with user info
+
     return {
       name: this._nameEl.textContent,
       description: this._descriptionEl.textContent,

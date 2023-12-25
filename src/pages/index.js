@@ -1,6 +1,5 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
-import Popup from "../components/Popup.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
@@ -65,14 +64,17 @@ const profileEditPopup = new PopupWithForm(
 );
 profileEditPopup.setEventListeners();
 
-const userInfo = new UserInfo(".profile__name", ".profile__description");
+const userInfo = new UserInfo({
+  profileNameSelector: "#profile-name",
+  profileDescriptionSelector: "#profile-description",
+});
 
 profileEditBtn.addEventListener("click", () => {
   const { name, description } = userInfo.getUserInfo();
   profileNameInput.value = name;
   profileDescriptionInput.value = description;
   editFormValidator.resetValidation();
-  profileEditModal.open();
+  profileEditPopup.open();
 });
 
 const cardSection = new Section(
