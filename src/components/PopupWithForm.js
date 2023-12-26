@@ -6,11 +6,6 @@ export default class PopupWithForm extends Popup {
     this._handleFormSubmit = handleFormSubmit;
   }
 
-  // open() {
-  //   this._button.textContent = "Save";
-  //   super.open();
-  // }
-
   close() {
     this._popupForm.reset();
     super.close();
