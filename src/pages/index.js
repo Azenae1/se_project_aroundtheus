@@ -100,13 +100,13 @@ function handleAddCardSubmit(formData) {
   newCardPopup.close();
 }
 
-function handleProfileEditSubmit(evt) {
-  evt.preventDefault();
+function handleProfileEditSubmit() {
+  // evt.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   editFormValidator.disableSubmitButton();
 
-  closeModal(profileEditModal);
+  profileEditPopup.close();
 }
 
 function createCard(cardData) {

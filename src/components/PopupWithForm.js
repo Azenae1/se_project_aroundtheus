@@ -17,7 +17,7 @@ export default class PopupWithForm extends Popup {
   }
   _getInputValues() {
     //collects data from input fields
-    const inputValues = this._popup.querySelectorAll(".modal__input");
+    const inputValues = this._popupForm.querySelectorAll(".modal__input");
     const formData = {};
     inputValues.forEach((input) => {
       formData[input.name] = input.value;
@@ -32,6 +32,7 @@ export default class PopupWithForm extends Popup {
     this._popupForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
+      this.close();
     });
   }
 }
