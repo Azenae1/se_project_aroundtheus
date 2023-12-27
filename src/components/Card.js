@@ -27,9 +27,9 @@ export default class Card {
     this._cardElement = null;
   }
 
-  _handleImageClick = () => {
-    this._handleImageClick({ name: this._name, link: this._link });
-  };
+  // _handleImageClick = () => {
+  //   this._handleImageClick({ name: this._name, link: this._link });
+  // };
 
   getView() {
     this._cardElement = document
