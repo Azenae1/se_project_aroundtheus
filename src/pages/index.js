@@ -6,11 +6,9 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import { initialCards, settings } from "../utils/constants.js";
 import {
-  profileEditModal,
   profileEditBtn,
   profileNameInput,
   profileDescriptionInput,
-  cardAddModal,
   cardAddBtn,
 } from "../utils/constants.js";
 
@@ -18,9 +16,8 @@ import "./index.css";
 
 // Elements
 
-const editFormEl = profileEditModal.querySelector(".modal__form");
-
-const addFormEl = cardAddModal.querySelector(".modal__form");
+const editFormEl = document.forms["profile-edit-form"];
+const addFormEl = document.forms["profile-add-form"];
 
 const profileName = document.querySelector("#profile-name");
 const profileDescription = document.querySelector("#profile-description");
@@ -81,7 +78,7 @@ popupWithImage.setEventListeners();
 
 function handleAddCardSubmit(formData) {
   cardSection.addItem(createCard({ name: formData.title, link: formData.url }));
-  console.log(formData);
+  addFormValidator.disableSubmitButton();
   newCardPopup.close();
 }
 
