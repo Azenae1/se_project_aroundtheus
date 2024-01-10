@@ -96,3 +96,21 @@ function createCard(cardData) {
   });
   return cardEl.getView();
 }
+
+/////////
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "d116fd12-6c63-4575-acfb-58f1bbf2e648",
+    "Content-Type": "application/json",
+  },
+});
+
+api
+  .getInitialCards()
+  .then((result) => {
+    // process the result
+  })
+  .catch((err) => {
+    console.error(err); // log the error to the console
+  });
