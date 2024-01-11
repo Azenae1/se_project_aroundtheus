@@ -98,7 +98,7 @@ function createCard(cardData) {
   return cardEl.getView();
 }
 
-/////////
+//API
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -108,10 +108,29 @@ const api = new Api({
 });
 
 api
-  .getInitialCards()
-  .then((result) => {
-    // process the result
+  .loadUserInfo()
+  .then(({ name, about, avatar }) => {
+    userProfile.setUserInfo(name, about);
+    userProfile.setUserAvatar(avatar);
   })
-  .catch((err) => {
-    console.error(err); // log the error to the console
+  .catch((res) => {
+    console.log(`Something went wrong: ${res}`);
+  });
+api
+  .getInitialCards()
+  .then((cards) => {
+    cardSection = new Section(
+      {
+        renderer: (item) => {
+          const cardElement = createCard(item);
+          cardSection.addItem(cardElement);
+        },
+        items: cards,
+      },
+      selectors.cardSection
+    );
+    cardSection.renderItems();
+  })
+  .catch((res) => {
+    console.log(`Something went wrong: ${res}`);
   });
