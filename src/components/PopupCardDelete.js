@@ -20,7 +20,7 @@ export default class PopupCardDelete extends Popup {
 
   // deleteText() {
   //   this._modalDeleteButton.textContent = "Deleting...";
-  }
+  // }
 
   setEventListeners() {
     this._popupForm.addEventListener("submit", (evt) => {
