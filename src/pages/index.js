@@ -114,8 +114,9 @@ api
     userProfile.setUserAvatar(avatar);
   })
   .catch((res) => {
-    console.log(`Something went wrong: ${res}`);
+    console.error(`Something went wrong: ${res}`);
   });
+
 api
   .getInitialCards()
   .then((cards) => {
@@ -132,5 +133,5 @@ api
     cardSection.renderItems();
   })
   .catch((res) => {
-    console.log(`Something went wrong: ${res}`);
+    console.error(`Something went wrong: ${res}`);
   });

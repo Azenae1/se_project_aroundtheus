@@ -10,16 +10,16 @@ export default class PopupCardDelete extends Popup {
     );
   }
 
-  setSubmitAction(action) {
-    this._handleFormSubmit = action;
+  setSubmitAction(handleFormSubmit) {
+    this._handleFormSubmit = handleFormSubmit;
   }
 
-  defaultText() {
-    this._modalDeleteButton.textContent = "Yes";
-  }
+  // defaultText() {
+  //   this._modalDeleteButton.textContent = "Yes";
+  // }
 
-  deleteText() {
-    this._modalDeleteButton.textContent = "Deleting...";
+  // deleteText() {
+  //   this._modalDeleteButton.textContent = "Deleting...";
   }
 
   setEventListeners() {
