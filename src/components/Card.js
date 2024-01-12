@@ -28,7 +28,7 @@ export default class Card {
       }
     });
     this._cardDelIcon.addEventListener("click", () => {
-      this._handleDelIcon(this);
+      this.handleDelIcon(this);
     });
     this._cardImageEl.addEventListener("click", () => {
       this._handleImageClick({ name: this._name, link: this._link });
@@ -39,7 +39,7 @@ export default class Card {
     this._cardFavIcon.classList.toggle("card__favorite-button_pressed");
   }
 
-  _handleDelIcon() {
+  handleDelIcon() {
     this._cardElement.remove();
     this._cardElement = null;
   }

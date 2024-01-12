@@ -1,3 +1,4 @@
+import Api from "../components/API.js";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import PopupWithForm from "../components/PopupWithForm.js";
@@ -47,9 +48,21 @@ const profileEditPopup = new PopupWithForm(
 );
 profileEditPopup.setEventListeners();
 
+const cardDeletePopup = new PopupCardDelete("#card-delete-modal");
+cardDeletePopup.setEventListeners();
+
 const userInfo = new UserInfo({
   profileNameSelector: "#profile-name",
   profileDescriptionSelector: "#profile-description",
+  profileAvatar: "#profile-avatar",
+});
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "d116fd12-6c63-4575-acfb-58f1bbf2e648",
+    "Content-Type": "application/json",
+  },
 });
 
 profileEditBtn.addEventListener("click", () => {
@@ -98,17 +111,25 @@ function createCard(cardData) {
   return cardEl.getView();
 }
 
+function deleteCard(card) {
+  cardDeletePopup.open();
+  cardDeletePopup.setSubmitAction(() => {
+    api
+      .deleteCard(card.getId())
+      .then(() => {
+        cardDeletePopup.close();
+        card.handleDelIcon();
+      })
+      .catch((err) => {
+        console.error(`Error occured: ${err}`);
+      });
+  });
+}
+
 //API
-const api = new Api({
-  baseUrl: "https://around-api.en.tripleten-services.com/v1",
-  headers: {
-    authorization: "d116fd12-6c63-4575-acfb-58f1bbf2e648",
-    "Content-Type": "application/json",
-  },
-});
 
 api
-  .loadUserInfo()
+  .getUserInfo()
   .then(({ name, about, avatar }) => {
     userProfile.setUserInfo(name, about);
     userProfile.setUserAvatar(avatar);
