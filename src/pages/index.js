@@ -20,6 +20,7 @@ import "./index.css";
 
 const editFormEl = document.forms["profile-edit-form"];
 const addFormEl = document.forms["profile-add-form"];
+const avatarFormEl = document.forms["avatar-edit-form"];
 
 const profileName = document.querySelector("#profile-name");
 const profileDescription = document.querySelector("#profile-description");
@@ -27,10 +28,12 @@ const profileDescription = document.querySelector("#profile-description");
 // Variables
 
 const editFormValidator = new FormValidator(settings, editFormEl);
+const profileAvatarValidator = new FormValidator(settings, avatarFormEl);
 const addFormValidator = new FormValidator(settings, addFormEl);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+profileAvatarValidator.enableValidation();
 
 cardAddBtn.addEventListener("click", () => {
   newCardPopup.open();

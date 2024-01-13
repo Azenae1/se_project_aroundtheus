@@ -93,6 +93,41 @@
       </div>
     </div>
 
+    <!-- Avatar edit modal -->
+    <div class="modal" id="avatar-edit-modal">
+      <div class="modal__container">
+        <button class="modal__close-button" id="avatar-close-btn"></button>
+        <p class="modal__heading">Change profile picture</p>
+        <form
+          class="modal__form"
+          name="avatar-edit-form"
+          id="avatar-edit-form"
+        >
+        <label class="modal__label">
+          <input
+            class="modal__input"
+            id="avatar-url-input"
+            type="url"
+            name="url"
+            placeholder="Image link"
+            required
+          /><span class="modal__error" id="avatar-url-input-error"></span>
+        </label>
+            <span
+              class="modal__error"
+              id="profile-description-input-error"
+            ></span
+          ></label>
+          <button
+            class="modal__save-button modal__save-button_disabled"
+            disabled
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+
     <!-- Profile add modal -->
     <div class="modal" id="profile-add-modal">
       <div class="modal__container">
@@ -131,7 +166,6 @@
     </div>
 
     <!-- Card preview modal -->
-
     <div class="modal modal_preview" id="card-preview-modal">
       <div class="modal__container-prev">
         <button class="modal__close-button" id="prev-close-btn"></button>
@@ -140,6 +174,15 @@
       </div>
     </div>
 
+    <!-- Card delete modal -->
+    <div class="modal" id="card-delete-modal">
+      <div class="modal__container">
+        <p class="modal__del">Are you sure?</p>
+        <button class="modal__close-button" id="del-close-btn"></button>
+        <button class="modal__save-button">Yes</button>
+      </div>
+    </div>
+    
     <template id="card-template">
       <li class="card">
         <button class="card__delete-button" type="button"></button>
@@ -150,14 +193,5 @@
         </div>
       </li>
     </template>
-
-    <!-- Card delete modal -->
-    <div class="modal" id="card-delete-modal">
-      <div class="modal__container">
-        <p class="modal__del">Are you sure?</p>
-        <button class="modal__close-button" id="del-close-btn"></button>
-        <button class="modal__save-button">Yes</button>
-      </div>
-    </div>
   </body>
 </html>
