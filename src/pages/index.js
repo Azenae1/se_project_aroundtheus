@@ -51,6 +51,8 @@ const profileEditPopup = new PopupWithForm(
 );
 profileEditPopup.setEventListeners();
 
+const avatarEditPopup = new PopupWithForm();
+
 const cardDeletePopup = new PopupCardDelete("#card-delete-modal");
 cardDeletePopup.setEventListeners();
 
