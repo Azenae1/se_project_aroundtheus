@@ -8,6 +8,7 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import { initialCards, settings } from "../utils/constants.js";
 import {
+  profileAvatarBtn,
   profileEditBtn,
   profileNameInput,
   profileDescriptionInput,
@@ -37,6 +38,9 @@ profileAvatarValidator.enableValidation();
 
 cardAddBtn.addEventListener("click", () => {
   newCardPopup.open();
+});
+profileAvatarBtn.addEventListener("click", () => {
+  avatarEditPopup.open();
 });
 
 const api = new Api({

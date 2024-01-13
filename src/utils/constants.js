@@ -34,6 +34,7 @@ export const settings = {
   errorClass: "modal__error_visible",
 };
 
+export const profileAvatarBtn = document.querySelector("#profile-avatar-btn");
 export const profileEditBtn = document.querySelector("#profile-edit-btn");
 export const profileNameInput = document.querySelector("#profile-name-input");
 export const profileDescriptionInput = document.querySelector(
