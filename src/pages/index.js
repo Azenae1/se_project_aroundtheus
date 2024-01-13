@@ -39,19 +39,69 @@ cardAddBtn.addEventListener("click", () => {
   newCardPopup.open();
 });
 
-const newCardPopup = new PopupWithForm(
-  "#profile-add-modal",
-  handleAddCardSubmit
-);
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "d116fd12-6c63-4575-acfb-58f1bbf2e648",
+    "Content-Type": "application/json",
+  },
+});
+
+const newCardPopup = new PopupWithForm("#profile-add-modal", (link) => {
+  newCardPopup.renderLoading(true);
+  api
+    .addCard(link)
+
+    .then((res) => {
+      cardSection.addItem(res);
+      newCardPopup.close();
+      addFormValidator.toggleButtonState();
+    })
+    .catch((err) => {
+      console.error(`Something went wrong: ${err}`);
+    })
+    .finally(() => {
+      newCardPopup.renderLoading(false);
+    });
+});
 newCardPopup.setEventListeners();
 
-const profileEditPopup = new PopupWithForm(
-  "#profile-edit-modal",
-  handleProfileEditSubmit
-);
+const profileEditPopup = new PopupWithForm("#profile-edit-modal", (values) => {
+  userInfo.setUserInfo(values);
+  profileEditPopup.renderLoading(true);
+  api
+    .setUserInfo(values)
+    .then(() => {
+      profileEditPopup.close();
+      editFormValidator.toggleButtonState();
+    })
+    .catch((err) => {
+      console.error(`Something went wrong: ${err}`);
+    })
+    .finally(() => {
+      profileEditPopup.renderLoading(false);
+    });
+});
 profileEditPopup.setEventListeners();
 
-const avatarEditPopup = new PopupWithForm();
+const avatarEditPopup = new PopupWithForm("#avatar-edit-modal", (url) => {
+  avatarEditPopup.renderLoading(true);
+
+  api
+    .setUserAvatar(url)
+    .then((res) => {
+      userInfo.setUserAvatar(res);
+      avatarEditPopup.close();
+      profileAvatarValidator.toggleButtonState();
+    })
+    .catch((err) => {
+      console.error(`Something went wrong: ${err}`);
+    })
+    .finally(() => {
+      avatarEditPopup.renderLoading(false);
+    });
+});
+avatarEditPopup.setEventListeners();
 
 const cardDeletePopup = new PopupCardDelete("#card-delete-modal");
 cardDeletePopup.setEventListeners();
@@ -60,14 +110,6 @@ const userInfo = new UserInfo({
   profileNameSelector: "#profile-name",
   profileDescriptionSelector: "#profile-description",
   profileAvatar: "#profile-avatar",
-});
-
-const api = new Api({
-  baseUrl: "https://around-api.en.tripleten-services.com/v1",
-  headers: {
-    authorization: "d116fd12-6c63-4575-acfb-58f1bbf2e648",
-    "Content-Type": "application/json",
-  },
 });
 
 profileEditBtn.addEventListener("click", () => {
@@ -126,7 +168,7 @@ function deleteCard(card) {
         card.handleDelIcon();
       })
       .catch((err) => {
-        console.error(`Error occured: ${err}`);
+        console.error(`Something went wrong: ${err}`);
       });
   });
 }
@@ -139,8 +181,8 @@ api
     userProfile.setUserInfo(name, about);
     userProfile.setUserAvatar(avatar);
   })
-  .catch((res) => {
-    console.error(`Something went wrong: ${res}`);
+  .catch((err) => {
+    console.error(`Something went wrong: ${err}`);
   });
 
 api
@@ -158,6 +200,6 @@ api
     );
     cardSection.renderItems();
   })
-  .catch((res) => {
-    console.error(`Something went wrong: ${res}`);
+  .catch((err) => {
+    console.error(`Something went wrong: ${err}`);
   });
