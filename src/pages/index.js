@@ -182,8 +182,8 @@ function deleteCard(card) {
 api
   .getUserInfo()
   .then(({ name, about, avatar }) => {
-    userProfile.setUserInfo(name, about);
-    userProfile.setUserAvatar(avatar);
+    userInfo.setUserInfo(name, about);
+    userInfo.setUserAvatar(avatar);
   })
   .catch((err) => {
     console.error(`Something went wrong: ${err}`);
@@ -199,8 +199,8 @@ api
           cardSection.addItem(cardElement);
         },
         items: cards,
-      },
-      selectors.cardSection
+      }
+      // selectors.cardSection
     );
     cardSection.renderItems();
   })
