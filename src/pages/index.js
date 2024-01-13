@@ -156,9 +156,59 @@ function handleProfileEditSubmit() {
 }
 
 function createCard(cardData) {
-  const cardEl = new Card(cardData, "#card-template", () => {
-    popupWithImage.open(cardData.link, cardData.name);
-  });
+  const cardEl = new Card(
+    cardData,
+    "#card-template",
+
+    //handles the image click
+    function handleImageClick(name, link) {
+      popupWithImage.open(name, link);
+    },
+    //handles the delete button click
+    function handleDeleteBtn(cardInstance) {
+      cardDeletePopup.open();
+
+      cardDeletePopup.setSubmitAction(() => {
+        api
+          .deleteCard(cardInstance.getId())
+          .then(() => {
+            cardDeletePopup.close();
+            cardInstance.handleDelIcon();
+          })
+          .catch((err) => {
+            console.error(`Something went wrong: ${err}`);
+          });
+
+        // cardElement = null;
+      });
+    },
+    //handles Like Button Click
+    function handleFavIcon(cardInstance) {
+      api
+        .addLike(cardInstance.getId())
+        .then((res) => {
+          cardEl.toggleFavIcon();
+        })
+        .catch((err) => {
+          console.error(`Something went wrong: ${err}`);
+        });
+    },
+    //removes Like Button
+    function handleDislike(cardInstance) {
+      api
+        .deleteLike(cardInstance.getId())
+        .then(() => {
+          cardInstance.toggleFavIcon();
+        })
+        .catch((err) => {
+          console.error(`Something went wrong: ${err}`);
+        });
+    }
+  );
+  // const cardEl = new Card(cardData, "#card-template", () => {
+  //   popupWithImage.open(cardData.link, cardData.name);
+  // });
+
   return cardEl.getView();
 }
 
@@ -191,18 +241,8 @@ api
 
 api
   .getInitialCards()
-  .then((cards) => {
-    cardSection = new Section(
-      {
-        renderer: (item) => {
-          const cardElement = createCard(item);
-          cardSection.addItem(cardElement);
-        },
-        items: cards,
-      }
-      // selectors.cardSection
-    );
-    cardSection.renderItems();
+  .then((res) => {
+    cardSection.renderItems(res);
   })
   .catch((err) => {
     console.error(`Something went wrong: ${err}`);

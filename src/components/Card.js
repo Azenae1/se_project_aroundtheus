@@ -35,7 +35,7 @@ export default class Card {
     });
   }
 
-  _handleFavIcon() {
+  toggleFavIcon() {
     this._cardFavIcon.classList.toggle("card__favorite-button_pressed");
   }
 
@@ -44,11 +44,22 @@ export default class Card {
     this._cardElement = null;
   }
 
+  getId() {
+    const id = this._id;
+    return id;
+  }
+
   getView() {
     this._cardElement = document
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
+
+    if (this._isLiked) {
+      this._cardFavIcon.classList.add("card__favorite-button_pressed");
+    } else {
+      this._cardFavIcon.classList.remove("card__favorite-button_pressed");
+    }
 
     this._cardImageEl = this._cardElement.querySelector("#card-image");
     this._cardTitleEl = this._cardElement.querySelector("#card-name");
