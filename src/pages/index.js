@@ -124,17 +124,38 @@ profileEditBtn.addEventListener("click", () => {
   profileEditPopup.open();
 });
 
-const cardSection = new Section(
-  {
-    items: initialCards,
-    renderer: (cardData) => {
-      cardSection.addItem(createCard(cardData));
-    },
-  },
-  ".cards__list"
-);
+let section;
 
-cardSection.renderItems();
+api
+  .getInitialCards()
+  .then((res) => {
+    console.log(res);
+    section = new Section(
+      {
+        items: res,
+        renderer: (cardData) => {
+          createCard(cardData);
+        },
+      },
+      ".cards__list"
+    );
+    section.renderItems();
+  })
+  .catch((err) => {
+    console.error(`Something went wrong: ${err}`);
+  });
+
+// const cardSection = new Section(createCard, ".cards__list");
+// api
+//   .getInitialCards()
+//   .then((res) => {
+//     cardSection.renderItems(res);
+//   })
+//   .catch((err) => {
+//     console.error(`Something went wrong: ${err}`);
+//   });
+
+// cardSection.renderItems();
 
 const popupWithImage = new PopupWithImage("#card-preview-modal");
 popupWithImage.setEventListeners();
@@ -186,7 +207,7 @@ function createCard(cardData) {
     function handleFavIcon(cardInstance) {
       api
         .addLike(cardInstance.getId())
-        .then((res) => {
+        .then(() => {
           cardEl.toggleFavIcon();
         })
         .catch((err) => {
@@ -234,15 +255,6 @@ api
   .then(({ name, about, avatar }) => {
     userInfo.setUserInfo(name, about);
     userInfo.setUserAvatar(avatar);
-  })
-  .catch((err) => {
-    console.error(`Something went wrong: ${err}`);
-  });
-
-api
-  .getInitialCards()
-  .then((res) => {
-    cardSection.renderItems(res);
   })
   .catch((err) => {
     console.error(`Something went wrong: ${err}`);
