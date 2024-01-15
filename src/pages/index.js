@@ -125,7 +125,7 @@ const avatarEditPopup = new PopupWithForm("#avatar-edit-modal", (url) => {
   api
     .setUserAvatar(url)
     .then((res) => {
-      userInfo.setUserAvatar(res);
+      userInfo.setUserAvatar(res.avatar);
       avatarEditPopup.close();
       profileAvatarValidator.toggleButtonState();
     })
