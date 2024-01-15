@@ -30,13 +30,13 @@ export default class Api {
       { method: "GET", headers: this._headers }
     ).then(this._resValidate);
   }
-  setUserAvatar(url) {
+  setUserAvatar(avatar) {
     return fetch(
       "https://around-api.en.tripleten-services.com/v1/users/me/avatar",
       {
         method: "PATCH",
         headers: this._headers,
-        body: JSON.stringify(url),
+        body: JSON.stringify(avatar),
       }
     ).then(this._resValidate);
   }
