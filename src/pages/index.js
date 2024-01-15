@@ -50,6 +50,37 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
+// const cardSection = new Section(createCard, ".cards__list");
+// api
+//   .getInitialCards()
+//   .then((res) => {
+//     cardSection.renderItems(res);
+//   })
+//   .catch((err) => {
+//     console.error(`Something went wrong: ${err}`);
+//   });
+
+// cardSection.renderItems();
+let cardSection;
+
+api
+  .getInitialCards()
+  .then((res) => {
+    console.log(res);
+    cardSection = new Section(
+      {
+        items: res,
+        renderer: (cardData) => {
+          createCard(cardData);
+        },
+      },
+      ".cards__list"
+    );
+    cardSection.renderItems();
+  })
+  .catch((err) => {
+    console.error(`Something went wrong: ${err}`);
+  });
 
 const newCardPopup = new PopupWithForm("#profile-add-modal", (link) => {
   newCardPopup.renderLoading(true);
@@ -123,39 +154,6 @@ profileEditBtn.addEventListener("click", () => {
   editFormValidator.resetValidation();
   profileEditPopup.open();
 });
-
-let section;
-
-api
-  .getInitialCards()
-  .then((res) => {
-    console.log(res);
-    section = new Section(
-      {
-        items: res,
-        renderer: (cardData) => {
-          createCard(cardData);
-        },
-      },
-      ".cards__list"
-    );
-    section.renderItems();
-  })
-  .catch((err) => {
-    console.error(`Something went wrong: ${err}`);
-  });
-
-// const cardSection = new Section(createCard, ".cards__list");
-// api
-//   .getInitialCards()
-//   .then((res) => {
-//     cardSection.renderItems(res);
-//   })
-//   .catch((err) => {
-//     console.error(`Something went wrong: ${err}`);
-//   });
-
-// cardSection.renderItems();
 
 const popupWithImage = new PopupWithImage("#card-preview-modal");
 popupWithImage.setEventListeners();
