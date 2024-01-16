@@ -46,13 +46,13 @@ export default class Api {
       headers: this._headers,
     }).then(this._resValidate);
   }
-  addCard(name, link) {
+  addCard(data) {
     return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
-        name: name,
-        link: link,
+        name: data.name,
+        link: data.link,
       }),
     }).then(this._resValidate);
   }

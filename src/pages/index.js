@@ -88,7 +88,7 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (link) => {
     .addCard(link)
 
     .then((res) => {
-      cardSection.addItem(res);
+      cardSection.addItem(res.link);
       newCardPopup.close();
       addFormValidator.toggleButtonState();
     })
@@ -102,7 +102,7 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (link) => {
 newCardPopup.setEventListeners();
 
 const profileEditPopup = new PopupWithForm("#profile-edit-modal", (values) => {
-  userInfo.setUserInfo(values);
+  // userInfo.setUserInfo(values);
   profileEditPopup.renderLoading(true);
   api
     .setUserInfo(values)
