@@ -55,12 +55,6 @@ export default class Card {
       .content.querySelector(".card")
       .cloneNode(true);
 
-    if (this._isLiked) {
-      this._cardFavIcon.classList.add("card__favorite-button_pressed");
-    } else {
-      this._cardFavIcon.classList.remove("card__favorite-button_pressed");
-    }
-
     this._cardImageEl = this._cardElement.querySelector("#card-image");
     this._cardTitleEl = this._cardElement.querySelector("#card-name");
     this._cardImageEl.src = this._link;
@@ -70,6 +64,12 @@ export default class Card {
       ".card__favorite-button"
     );
     this._cardDelIcon = this._cardElement.querySelector(".card__delete-button");
+
+    if (this._isLiked) {
+      this._cardFavIcon.classList.add("card__favorite-button_pressed");
+    } else {
+      this._cardFavIcon.classList.remove("card__favorite-button_pressed");
+    }
 
     this._setEventListeners();
     return this._cardElement;
