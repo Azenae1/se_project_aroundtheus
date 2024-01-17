@@ -76,7 +76,8 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (link) => {
     .addCard(link)
 
     .then((res) => {
-      cardSection.addItem(res.link);
+      // console.log(res.link);
+      cardSection.addItem(link);
       newCardPopup.close();
       addFormValidator.toggleButtonState();
     })
@@ -145,6 +146,7 @@ profileEditBtn.addEventListener("click", () => {
 // Functions
 
 function createCard(cardData) {
+  // console.log("cardIndx", cardData);
   const cardEl = new Card(
     cardData,
     "#card-template",

@@ -1,12 +1,14 @@
 export default class Card {
   constructor(
     cardData,
+
     cardSelector,
     handleImageClick,
     handleDelIcon,
     handleFavIcon,
     handleDislike
   ) {
+    // console.log("cardData", cardData);
     this._name = cardData.name;
     this._link = cardData.link;
     this._id = cardData._id;
@@ -58,6 +60,7 @@ export default class Card {
     this._cardImageEl = this._cardElement.querySelector("#card-image");
     this._cardTitleEl = this._cardElement.querySelector("#card-name");
     this._cardImageEl.src = this._link;
+    // console.log("link", this._link);
     this._cardImageEl.alt = this._name;
     this._cardTitleEl.textContent = this._name;
     this._cardFavIcon = this._cardElement.querySelector(

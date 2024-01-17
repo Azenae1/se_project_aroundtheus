@@ -11,6 +11,8 @@ export default class Section {
   }
 
   addItem({ name, link, id }) {
+    // debugger;
+    // console.log({ name, link, id });
     const element = this._renderer({ name, link, id });
     this._container.prepend(element);
   }
