@@ -66,10 +66,7 @@ let cardSection;
 api
   .getInitialCards()
   .then((res) => {
-    console.log(res);
-    cardSection = new Section((cardData) => {
-      createCard(cardData);
-    }, ".cards__list");
+    cardSection = new Section(createCard, ".cards__list");
     cardSection.renderItems(res);
   })
   .catch((err) => {
