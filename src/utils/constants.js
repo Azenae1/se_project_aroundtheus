@@ -1,3 +1,25 @@
+export const settings = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__save-button",
+  inactiveButtonClass: "modal__save-button_disabled",
+  inputErrorClass: "modal__error",
+  errorClass: "modal__error_visible",
+};
+
+export const editFormEl = document.forms["profile-edit-form"];
+export const addFormEl = document.forms["profile-add-form"];
+export const avatarFormEl = document.forms["avatar-edit-form"];
+
+export const profileAvatarBtn = document.querySelector("#profile-avatar-btn");
+export const profileEditBtn = document.querySelector("#profile-edit-btn");
+export const profileNameInput = document.querySelector("#profile-name-input");
+export const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
+
+export const cardAddBtn = document.querySelector("#profile-add-btn");
+export const cardListEl = document.querySelector(".cards__list");
+
 // export const initialCards = [
 //   {
 //     name: "Church window",
@@ -25,25 +47,3 @@
 //     link: "https://i.pinimg.com/originals/24/ae/fe/24aefe8f2484c22d981e0558727b0652.png",
 //   },
 // ];
-
-export const settings = {
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__save-button",
-  inactiveButtonClass: "modal__save-button_disabled",
-  inputErrorClass: "modal__error",
-  errorClass: "modal__error_visible",
-};
-
-export const editFormEl = document.forms["profile-edit-form"];
-export const addFormEl = document.forms["profile-add-form"];
-export const avatarFormEl = document.forms["avatar-edit-form"];
-
-export const profileAvatarBtn = document.querySelector("#profile-avatar-btn");
-export const profileEditBtn = document.querySelector("#profile-edit-btn");
-export const profileNameInput = document.querySelector("#profile-name-input");
-export const profileDescriptionInput = document.querySelector(
-  "#profile-description-input"
-);
-
-export const cardAddBtn = document.querySelector("#profile-add-btn");
-export const cardListEl = document.querySelector(".cards__list");

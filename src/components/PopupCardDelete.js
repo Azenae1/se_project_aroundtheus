@@ -14,7 +14,7 @@ export default class PopupCardDelete extends Popup {
 
   renderLoading(isLoading) {
     if (isLoading) {
-      this._submitBtn.textContent = "Saving...";
+      this._submitBtn.textContent = "Deleting...";
     } else {
       this._submitBtn.textContent = this._submitBtnDefault;
     }
