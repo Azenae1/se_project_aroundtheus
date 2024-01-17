@@ -67,16 +67,10 @@ api
   .getInitialCards()
   .then((res) => {
     console.log(res);
-    cardSection = new Section(
-      {
-        items: res,
-        renderer: (cardData) => {
-          createCard(cardData);
-        },
-      },
-      ".cards__list"
-    );
-    cardSection.renderItems();
+    cardSection = new Section((cardData) => {
+      createCard(cardData);
+    }, ".cards__list");
+    cardSection.renderItems(res);
   })
   .catch((err) => {
     console.error(`Something went wrong: ${err}`);
