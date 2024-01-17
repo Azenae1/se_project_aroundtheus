@@ -6,7 +6,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupCardDelete from "../components/PopupCardDelete.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
-import { initialCards, settings } from "../utils/constants.js";
+import { settings } from "../utils/constants.js";
 import {
   profileAvatarBtn,
   profileEditBtn,
@@ -22,9 +22,6 @@ import "./index.css";
 const editFormEl = document.forms["profile-edit-form"];
 const addFormEl = document.forms["profile-add-form"];
 const avatarFormEl = document.forms["avatar-edit-form"];
-
-const profileName = document.querySelector("#profile-name");
-const profileDescription = document.querySelector("#profile-description");
 
 // Variables
 
@@ -201,9 +198,6 @@ function createCard(cardData) {
         });
     }
   );
-  // const cardEl = new Card(cardData, "#card-template", () => {
-  //   popupWithImage.open(cardData.link, cardData.name);
-  // });
 
   return cardEl.getView();
 }
