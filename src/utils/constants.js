@@ -34,6 +34,10 @@ export const settings = {
   errorClass: "modal__error_visible",
 };
 
+export const editFormEl = document.forms["profile-edit-form"];
+export const addFormEl = document.forms["profile-add-form"];
+export const avatarFormEl = document.forms["avatar-edit-form"];
+
 export const profileAvatarBtn = document.querySelector("#profile-avatar-btn");
 export const profileEditBtn = document.querySelector("#profile-edit-btn");
 export const profileNameInput = document.querySelector("#profile-name-input");

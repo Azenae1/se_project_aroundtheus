@@ -8,6 +8,9 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import { settings } from "../utils/constants.js";
 import {
+  editFormEl,
+  addFormEl,
+  avatarFormEl,
   profileAvatarBtn,
   profileEditBtn,
   profileNameInput,
@@ -16,12 +19,6 @@ import {
 } from "../utils/constants.js";
 
 import "./index.css";
-
-// Elements
-
-const editFormEl = document.forms["profile-edit-form"];
-const addFormEl = document.forms["profile-add-form"];
-const avatarFormEl = document.forms["avatar-edit-form"];
 
 // Variables
 
@@ -116,7 +113,8 @@ const profileEditPopup = new PopupWithForm("#profile-edit-modal", (values) => {
   profileEditPopup.renderLoading(true);
   api
     .setUserInfo(values)
-    .then(() => {
+    .then((res) => {
+      userInfo.setUserInfo(res.name, res.about);
       profileEditPopup.close();
       editFormValidator.toggleButtonState();
     })
