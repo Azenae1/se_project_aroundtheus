@@ -161,8 +161,10 @@ function createCard(cardData) {
 
       cardDeletePopup.setSubmitAction(() => {
         cardDeletePopup.renderLoading(true);
+        console.log(this._id);
         api
           .deleteCard(cardInstance.getId())
+
           .then(() => {
             cardInstance.handleDelIcon();
             cardDeletePopup.close();
