@@ -36,25 +36,20 @@ const api = new Api({
   },
 });
 
-let cardSection;
+const cardSection = new Section(createCard, ".cards__list");
 api
   .getInitialCards()
   .then((res) => {
-    cardSection = new Section(createCard, ".cards__list");
     cardSection.renderItems(res);
   })
-  .catch((err) => {
-    console.error(`Something went wrong: ${err}`);
-  });
+  .catch(console.error);
 api
   .getUserInfo()
   .then(({ name, about, avatar }) => {
     userInfo.setUserInfo(name, about);
     userInfo.setUserAvatar(avatar);
   })
-  .catch((err) => {
-    console.error(`Something went wrong: ${err}`);
-  });
+  .catch(console.error);
 
 const editFormValidator = new FormValidator(settings, editFormEl);
 const addFormValidator = new FormValidator(settings, addFormEl);
@@ -80,9 +75,7 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (link) => {
       newCardPopup.close();
       addFormValidator.toggleButtonState();
     })
-    .catch((err) => {
-      console.error(`Something went wrong: ${err}`);
-    })
+    .catch(console.error)
     .finally(() => {
       newCardPopup.renderLoading(false);
     });
@@ -99,9 +92,7 @@ const avatarEditPopup = new PopupWithForm("#avatar-edit-modal", (url) => {
       avatarEditPopup.close();
       profileAvatarValidator.toggleButtonState();
     })
-    .catch((err) => {
-      console.error(`Something went wrong: ${err}`);
-    })
+    .catch(console.error)
     .finally(() => {
       avatarEditPopup.renderLoading(false);
     });
@@ -118,9 +109,7 @@ const profileEditPopup = new PopupWithForm("#profile-edit-modal", (values) => {
       profileEditPopup.close();
       editFormValidator.toggleButtonState();
     })
-    .catch((err) => {
-      console.error(`Something went wrong: ${err}`);
-    })
+    .catch(console.error)
     .finally(() => {
       profileEditPopup.renderLoading(false);
     });
@@ -168,9 +157,7 @@ function createCard(cardData) {
             cardInstance.handleDelIcon();
             cardDeletePopup.close();
           })
-          .catch((err) => {
-            console.error(`Something went wrong: ${err}`);
-          })
+          .catch(console.error)
           .finally(() => {
             cardDeletePopup.renderLoading(false);
           });
@@ -183,9 +170,7 @@ function createCard(cardData) {
         .then(() => {
           cardEl.toggleFavIcon();
         })
-        .catch((err) => {
-          console.error(`Something went wrong: ${err}`);
-        });
+        .catch(console.error);
     },
     //removes Like Button
     function handleDislike(cardInstance) {
@@ -194,9 +179,7 @@ function createCard(cardData) {
         .then(() => {
           cardInstance.toggleFavIcon();
         })
-        .catch((err) => {
-          console.error(`Something went wrong: ${err}`);
-        });
+        .catch(console.error);
     }
   );
 
