@@ -10,10 +10,9 @@ export default class Section {
     });
   }
 
-  addItem({ name, link, id }) {
+  addItem(data) {
     // debugger;
-    // console.log({ name, link, id });
-    const element = this._renderer({ name, link, id });
+    const element = this._renderer(data);
     this._container.prepend(element);
   }
 }

@@ -76,7 +76,6 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (link) => {
     .addCard(link)
 
     .then((res) => {
-      console.log(res);
       cardSection.addItem(res);
       newCardPopup.close();
       addFormValidator.toggleButtonState();
