@@ -76,8 +76,8 @@ const newCardPopup = new PopupWithForm("#profile-add-modal", (link) => {
     .addCard(link)
 
     .then((res) => {
-      // console.log(res.link);
-      cardSection.addItem(link);
+      console.log(res);
+      cardSection.addItem(res);
       newCardPopup.close();
       addFormValidator.toggleButtonState();
     })
@@ -161,7 +161,7 @@ function createCard(cardData) {
 
       cardDeletePopup.setSubmitAction(() => {
         cardDeletePopup.renderLoading(true);
-        console.log(this._id);
+
         api
           .deleteCard(cardInstance.getId())
 
