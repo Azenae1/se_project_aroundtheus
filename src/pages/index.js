@@ -22,11 +22,11 @@ import "./index.css";
 
 // Variables
 
-const userInfo = new UserInfo({
-  profileNameSelector: "#profile-name",
-  profileDescriptionSelector: "#profile-description",
-  profileAvatar: "#profile-avatar",
-});
+const userInfo = new UserInfo(
+  "#profile-name",
+  "#profile-description",
+  "#profile-avatar"
+);
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
