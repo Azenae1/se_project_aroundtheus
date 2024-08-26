@@ -9,7 +9,7 @@
 
 **Intro**
 
-This project is made so all the elements are displayed correctly on popular screen sizes.
+This project is made so all the elements are displayed correctly on popular screen sizes (desktop as well as mobile devices). 
 
 **New features**
 Partly working Profile editing function, cards are now not hardly coded in HTML.
@@ -17,6 +17,9 @@ Partly working Profile editing function, cards are now not hardly coded in HTML.
 -added New card function
 -added Like and Delete functions
 -added Image preview function
+
+**Massive update**
+The project is now connected to the server and fully operational! You can upload, like and delete photos, open their preview, update user info and avatar.
 
 **Figma**
 
