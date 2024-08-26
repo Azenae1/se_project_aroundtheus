@@ -21,9 +21,11 @@ Partly working Profile editing function, cards are now not hardly coded in HTML.
 **Massive update**
 The project is now connected to the server and fully operational! You can upload, like and delete photos, open their preview, update user info and avatar.
 
-**Figma**
+**Links**
 
 - [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
+- [Docker image](https://hub.docker.com/r/azenael/aroundtheus)
 
 **URL**
 https://azenae1.github.io/se_project_aroundtheus/
+
